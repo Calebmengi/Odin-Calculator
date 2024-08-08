@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body{
+    background-color: #FFFBFE;
+}
+
+.calculator{
+    background-color: #565254;
+    width: 300px;
+    height: 430px;
+    border-radius: 10px;
+    margin: 100px auto 0;
+}
+
+.input{
+    width: 60px;
+    height: 50px;
+}
+
+button{
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    background-color: #7A7D7D;
+    color: #fff;
+    font-size: 1.5em;
+    font-family: "Roboto Mono";
+    transition: all 0.3s;
+}
+
+.number{
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    top: 30px;
+}
+
+#display{
+    width: 270px;
+    height: 50px;
+    position: relative;
+    top: 20px;
+    left: 13px;
+    border-radius: 15px;
+    border: none;
+    background-color: #7A7D7D;
+    font-size: 2rem;
+    color: #fff;
+    font-family: "Roboto Mono";
+    text-indent: 10px;
+}
+
+button:hover{
+    font-size: 1.8em;
+    width: 65px;
+    height: 55px;
+}
+
+.footer{
+    width: 270px;
+    height: 50px;
+    background-color: #fff;
+    position: relative;
+    top: 30px;
+    left: 16px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+p{
+    position: relative;
+    top: 10px;
+    font-size: 1.5em;
+    font-family: "Roboto Mono";
+}
+
+.clear{
+    background-color: #D0CFCF;
+    color: black;
+}
