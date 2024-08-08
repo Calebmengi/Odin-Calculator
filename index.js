@@ -18,41 +18,43 @@ function resetCalculator() {
     updateDisplay("0");
 }
 
-clearCalc.addEventListener("click", resetCalculator);
-
 function updateDisplay(value){
-    display.innerText = value;
+    display.textContent = value;
 }
 
+clearCalc.addEventListener("click", resetCalculator);
 
 buttons.forEach(button => {
-    button.addEventListener("click" , () => {
+    button.addEventListener("click", () => {
         const value = button.value;
 
         if (numbers.includes(value)) {
-           if (operator){
-             number2 += value;
-             updateDisplay(number2);
-           } else {
-            number1 += value;
-            updateDisplay(number1);
-           }
+            if (operator) {
+                number2 += value;
+                updateDisplay(number1 + " " + operator + " " + number2);
+            } else {
+                number1 += value;
+                updateDisplay(number1);
+            }
         } else if (operators.includes(value)) {
             if (value === "=") {
-                if (number1 && number2 && operator){
-                    switch(operator){
+                // Check if number2 is missing
+                if (operator && !number2) {
+                    updateDisplay("Error!");
+                } else if (number1 && number2 && operator) {
+                    switch (operator) {
                         case "+":
                             result = parseFloat(number1) + parseFloat(number2);
                             break;
-                         case "-":
-                             result = parseFloat(number1) - parseFloat(number2);
-                             break;             
-                         case "*":
-                             result = parseFloat(number1) * parseFloat(number2);
-                             break;                      
-                         case "/":
+                        case "-":
+                            result = parseFloat(number1) - parseFloat(number2);
+                            break;
+                        case "*":
+                            result = parseFloat(number1) * parseFloat(number2);
+                            break;
+                        case "/":
                             result = parseFloat(number1) / parseFloat(number2);
-                             break;    
+                            break;
                     }
                     updateDisplay(result);
                     number1 = result.toString();
@@ -60,12 +62,11 @@ buttons.forEach(button => {
                     operator = "";
                 }
             } else {
-                if(!number2){
+                if (!number2) {  // Only set the operator if number2 is not being input yet
                     operator = value;
                     updateDisplay(number1 + " " + operator);
                 }
             }
         }
-    })
-}) 
-
+    });
+});
